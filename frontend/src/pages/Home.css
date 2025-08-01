@@ -1,0 +1,114 @@
+/* src/pages/Home.css */
+
+.home-wrapper {
+    font-family: system-ui, sans-serif;
+    background: linear-gradient(to bottom right, #f0f9ff, #ffffff);
+    color: #0f172a;
+    padding: 2rem;
+    min-height: 100vh;
+    text-align: center;
+  }
+  
+  .dark .home-wrapper {
+    background: linear-gradient(to bottom right, #0f172a, #1e293b);
+    color: #e2e8f0;
+  }
+  
+  .hero .title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero .description {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-inline: auto;
+  }
+  
+  .buttons {
+    margin-bottom: 2rem;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    margin: 0.4rem;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: background 0.3s ease;
+  }
+  
+  .cta {
+    background-color: #2563eb;
+    color: white;
+  }
+  
+  .logout {
+    background-color: #ef4444;
+    color: white;
+  }
+  
+  .toggle {
+    background-color: #334155;
+    color: white;
+  }
+  
+  .nav {
+    background-color: #14b8a6;
+    color: white;
+  }
+  
+  .features {
+    margin-top: 3rem;
+  }
+  
+  .features h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #1e3a8a;
+  }
+  
+  .dark .features h2 {
+    color: #38bdf8;
+  }
+  
+  .features ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .features li {
+    background: #ffffff;
+    color: #334155;
+    margin: 0.5rem auto;
+    max-width: 500px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .dark .features li {
+    background: #1e293b;
+    color: #e2e8f0;
+  }
+  
+  .tip-box {
+    margin-top: 3rem;
+    font-size: 1.1rem;
+    background: #e0f7fa;
+    padding: 1rem;
+    border-radius: 12px;
+    max-width: 600px;
+    margin-inline: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .dark .tip-box {
+    background: #334155;
+    color: #f1f5f9;
+  }
+  
