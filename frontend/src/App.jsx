@@ -1,3 +1,7 @@
+import { FcAbout } from "react-icons/fc"; 
+import { ImBooks } from "react-icons/im"; 
+import { SiFuturelearn } from "react-icons/si"; 
+import { AiOutlineHome } from "react-icons/ai"; 
 import React from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useTheme } from './context/ThemeContext'; // ✅ Theme context
@@ -25,10 +29,10 @@ function App() {
     <div className={darkMode ? 'dark-mode' : ''}>
       {!hideNavbar && (
         <nav className="navbar">
-          <Link to="/home" className="nav-link">🏠 Home</Link>
-          <Link to="/learn" className="nav-link">📚 Learn</Link>
-          <Link to="/glossary" className="nav-link">📖 Glossary</Link>
-          <Link to="/about" className="nav-link">ℹ️ About</Link>
+          <Link to="/home" className="nav-link"><AiOutlineHome /> Home</Link>
+          <Link to="/learn" className="nav-link"><SiFuturelearn /> Learn</Link>
+          <Link to="/glossary" className="nav-link"><ImBooks />Glossary</Link>
+          <Link to="/about" className="nav-link"><FcAbout /> About</Link>
           <div className="button-group">
             <Link to="/learn" className="btn">▶️ Start Learning</Link>
             <Link to="/leaderboard" className="btn">🏆 Leaderboard</Link>
