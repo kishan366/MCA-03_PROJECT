@@ -1,0 +1,19 @@
+/* Light mode gradient */
+body.light {
+    background: linear-gradient(135deg, #f8f9fa, #e0eafc);
+    color: #000;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+  
+  /* Dark mode gradient */
+  body.dark {
+    background: linear-gradient(135deg, #1e1e2f, #3a3a52);
+    color: #fff;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  

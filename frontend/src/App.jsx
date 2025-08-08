@@ -1,3 +1,4 @@
+import { TbLogout } from "react-icons/tb"; 
 import { FcAbout } from "react-icons/fc"; 
 import { ImBooks } from "react-icons/im"; 
 import { SiFuturelearn } from "react-icons/si"; 
@@ -34,14 +35,14 @@ function App() {
           <Link to="/glossary" className="nav-link"><ImBooks />Glossary</Link>
           <Link to="/about" className="nav-link"><FcAbout /> About</Link>
           <div className="button-group">
-            <Link to="/learn" className="btn">▶️ Start Learning</Link>
+            {/* <Link to="/learn" className="btn">▶️ Start Learning</Link>
             <Link to="/leaderboard" className="btn">🏆 Leaderboard</Link>
-            <Link to="/profile" className="btn">👤 Profile</Link>
+            <Link to="/profile" className="btn">👤 Profile</Link> */}
             <button onClick={toggleTheme} className="btn">
               {darkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
             </button>
             <button onClick={handleLogout} className="btn logout">
-              🔓 Logout
+              {/* 🔓 Logout*/}<TbLogout /> 
             </button>
           </div>
         </nav>

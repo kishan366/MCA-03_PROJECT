@@ -1,4 +1,6 @@
+// ThemeContext.jsx
 import React, { createContext, useContext, useState, useEffect } from "react";
+import "./theme.css"; // global gradient styles
 
 const ThemeContext = createContext();
 
@@ -19,7 +21,9 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark");
+      document.body.classList.remove("light");
     } else {
+      document.body.classList.add("light");
       document.body.classList.remove("dark");
     }
   }, [darkMode]);
@@ -31,5 +35,5 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
-// Custom hook for easier use
+// Custom hook for easier access
 export const useTheme = () => useContext(ThemeContext);

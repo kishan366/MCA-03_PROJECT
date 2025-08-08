@@ -179,10 +179,10 @@ const Home = () => {
         </p>
         <div className="buttons">
           <Link to="/learn" className="btn cta">Start Learning</Link>
-          <button onClick={handleLogout} className="btn logout">Logout</button>
+          {/* <button onClick={handleLogout} className="btn logout">Logout</button>
           <button onClick={toggleTheme} className="btn toggle">
             {darkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
-          </button>
+          </button> */}
           {/* <Link to="/leaderboard" className="btn nav">🏆 Leaderboard</Link>
           <Link to="/profile" className="btn nav">👤 Profile</Link> */}
         </div>
