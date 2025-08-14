@@ -1,20 +1,37 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const authRoutes = require("./routes/auth");
-const path = require("path");
-require("dotenv").config();
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
 app.use(cors());
-app.use(express.json());
-app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // to access images
+app.use(bodyParser.json());
 
-// Routes
-app.use("/api/auth", authRoutes);
+let quizData = [
+  { question: "What is React?", options: ["Library", "Framework", "Language"], answer: "Library" },
+  { question: "What is JSX?", options: ["JavaScript XML", "Java Syntax", "JSON"], answer: "JavaScript XML" }
+];
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    app.listen(5000, () => console.log("Server running on http://localhost:5000"));
-  })
-  .catch(err => console.error(err));
+// Chat API (dummy AI)
+app.post("/api/chat", (req, res) => {
+  const { message } = req.body;
+  res.json({ reply: `You said: ${message}` });
+});
+
+// Quiz API
+app.post("/api/quiz", (req, res) => {
+  res.json({ quiz: quizData });
+});
+
+// Quiz submit API
+app.post("/api/quiz/submit", (req, res) => {
+  const { answers } = req.body;
+  let score = 0;
+  quizData.forEach((q, i) => {
+    if (answers[i] === q.answer) score++;
+  });
+  res.json({ score });
+});
+
+app.listen(5000, () => console.log("Server running on port 5000"));

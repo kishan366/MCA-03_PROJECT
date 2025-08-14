@@ -177,52 +177,28 @@
 
 // export default VideoPlayer;
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import "./VideoPlayer.css";
 
 const VideoPlayer = () => {
   const { topic } = useParams();
-  const [videoEnded, setVideoEnded] = useState(false);
-  const [score, setScore] = useState(0);
-  const [showScore, setShowScore] = useState(false);
 
   const videoData = {
     javascript: {
       title: "JavaScript Shorts - Basics",
       youtubeId: "FtaQSdrl7YA",
-      quiz: [
-        {
-          question: "What does a variable do in JavaScript?",
-          options: ["Runs code", "Stores data", "Displays alerts", "None"],
-          answer: "Stores data",
-        },
-        {
-          question: "JavaScript is...",
-          options: ["Static", "Dynamic", "Typed", "Compiled"],
-          answer: "Dynamic",
-        },
-      ],
     },
   };
 
   const data = videoData[topic];
   if (!data) return <h2 className="error">❌ Topic not found</h2>;
 
-  const handleAnswer = (selected, correct) => {
-    if (selected === correct) setScore((prev) => prev + 1);
-  };
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setVideoEnded(true);
-    }, 10000); // quiz appears after 10 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <div className="video-container" data-theme={localStorage.getItem("theme") || "light"}>
+    <div
+      className="video-container"
+      data-theme={localStorage.getItem("theme") || "light"}
+    >
       <h1 className="video-title">{data.title}</h1>
 
       <div className="video-wrapper">
@@ -236,35 +212,6 @@ const VideoPlayer = () => {
           className="shorts-iframe"
         ></iframe>
       </div>
-
-      {videoEnded && !showScore && (
-        <div className="quiz-box">
-          <h2>🧠 Take the Quiz!</h2>
-          {data.quiz.map((q, idx) => (
-            <div key={idx} className="question-block">
-              <p><strong>{q.question}</strong></p>
-              {q.options.map((opt, i) => (
-                <button
-                  key={i}
-                  className="option-btn"
-                  onClick={() => handleAnswer(opt, q.answer)}
-                >
-                  {opt}
-                </button>
-              ))}
-            </div>
-          ))}
-          <button onClick={() => setShowScore(true)} className="submit-btn">
-            Submit & See Score
-          </button>
-        </div>
-      )}
-
-      {showScore && (
-        <div className="score-card">
-          <h2>🎉 Your Score: {score} / {data.quiz.length}</h2>
-        </div>
-      )}
     </div>
   );
 };
